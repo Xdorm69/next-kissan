@@ -1,7 +1,8 @@
-import { data, User } from "@/constants/data";
+import { User } from "@/constants/data";
+import { binarySearch } from "./db";
 
-export const getUser = (id: number): User | undefined => {
-  return data.find((user) => user.id === id);
+export const getUser = (data: User[], id: number): User | undefined => {
+  return binarySearch(data, id);
 };
 
 export const capitalize = (word: string): string => {

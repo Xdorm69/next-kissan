@@ -1,4 +1,5 @@
 import UserCard from "@/components/UserCard";
+import { data } from "@/constants/data";
 import { capitalize, getUser } from "@/util/user";
 
 const page = async ({
@@ -9,7 +10,7 @@ const page = async ({
   const params = await searchParams;
   const id = params.id;
 
-  const user = getUser(Number(id));
+  const user = getUser(data, Number(id));
   if (!user) return "No user found";
 
   return (

@@ -1,3 +1,5 @@
+import { getEntryPosition } from "@/util/db";
+
 export type User = {
   id: number;
   username: string;
@@ -11,17 +13,22 @@ export type User = {
   };
 };
 
+//when entering a new user use binary search to find the correct position and insert it there
+//util/db.ts getEntryPosition();
+//run tsx constants/data.ts
+
 export const data: User[] = [
   {
     id: 2584,
-    username: "Amitoj Singh",
-    email: "amitoj@gmail.com",
+    username: "User 1",
+    email: "biyy@gmail.com",
     role: "member",
     image: "/users/fallback.png",
-    mobile: "9988066606",
+    mobile: "0088008899",
     address: {
-      line1: "G-204 Victoria Heights Zirakpur, Punjab",
+      line1: "504 Zirakpur, Punjab",
       line2: "Zirakpur, Punjab - 140603",
     },
   },
 ];
+
