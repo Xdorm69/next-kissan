@@ -1,9 +1,33 @@
-import React from 'react'
+import UserCard from "@/components/UserCard";
+import { capitalize, getUser } from "@/util/user";
 
-const page = () => {
+const page = async ({
+  searchParams,
+}: {
+  searchParams: Promise<{ id: string }>;
+}) => {
+  const params = await searchParams;
+  const id = params.id;
+
+  const user = getUser(Number(id));
+  if (!user) return "No user found";
+
   return (
-    <div>page</div>
-  )
-}
+    <section className="min-h-screen bg-gray-50 relative">
+      {/* Header */}
+      <div className="bg-blue-400 text-white px-6 py-6 rounded-b-3xl h-34 absolute top-0 left-0 w-full z-0" />
+      <div className="absolute z-1 top-0 left-0 w-full py-8 px-6">
+        <header className="text-2xl font-semibold text-background">
+          {capitalize(user.role)} Information
+        </header>
 
-export default page
+        {/* Content */}
+        <div className="mt-6">
+          <UserCard user={user} />
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default page;
