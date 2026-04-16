@@ -20,9 +20,12 @@ body {
 
 @layer utilities {
   .btn {
-    @apply px-2 py-1 rounded shadow;
+    @apply px-4 py-2 rounded shadow;
   }
   .btn-primary {
-    @apply text-white bg-blue-400
+    @apply text-white bg-blue-400;
+  }
+  input {
+    @apply px-4 py-2 rounded shadow focus:outline-none bg-gray-200 text-gray-700 font-sans;
   }
 }
